@@ -14,13 +14,14 @@ namespace BinarySearchTree_HashTable
 
         int leftCount = 0, rightCount = 0;
         bool result = false;
+
         public BinarySearchTreeOps(T NodeData)
         {
             this.NodeData = NodeData;
             this.leftTree = leftTree;
             this.rightTree = rightTree;
-        }
 
+        }
 
         public void Insert(T item)
         {
@@ -54,11 +55,44 @@ namespace BinarySearchTree_HashTable
             }
         }
 
+
+        public void InsertMultiItems(params T[] inputarray)
+        {
+            foreach (T item in inputarray)
+            {
+                Insert(item);
+            }
+        }
+
+        public void Count(BinarySearchTreeOps<T> binarySearchTree)
+        {
+
+
+            if (this.leftTree != null)
+            {
+                binarySearchTree.leftCount++;
+                this.leftTree.Count(binarySearchTree);
+            }
+
+            if (this.rightTree != null)
+            {
+                binarySearchTree.rightCount++;
+                this.rightTree.Count(binarySearchTree);
+            }
+
+        }
+
+        public void GetSizeOfBSt(BinarySearchTreeOps<T> binarySearchTree)
+        {
+            Count(binarySearchTree);
+            Console.WriteLine("Size of BST is :- " + (1 + this.leftCount + this.rightCount));
+
+        }
+
         public void Display()
         {
             if (this.leftTree != null)
             {
-                leftCount++;
                 this.leftTree.Display();
             }
 
@@ -66,7 +100,6 @@ namespace BinarySearchTree_HashTable
 
             if (this.rightTree != null)
             {
-                rightCount++;
                 this.rightTree.Display();
             }
 
