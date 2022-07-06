@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
 using BinarySearchTree_HashTable;
 
 Console.WriteLine("----- Hash table -----\n");
 
 MyMapNode<string, int> hash = new MyMapNode<string, int>(10);
+
 //hash.Add("0", "To");
 //hash.Add("1", "be");
 //hash.Add("2", "or");
@@ -19,7 +19,9 @@ MyMapNode<string, int> hash = new MyMapNode<string, int>(10);
 //hash.Display("5");
 //hash.Display("2");
 
-hash.GetFreq();
+hash.RemoveWord();
+
 
 Console.ReadKey();
+
 
