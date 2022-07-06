@@ -22,7 +22,6 @@ namespace BinarySearchTree_HashTable
             this.rightTree = rightTree;
 
         }
-
         public void Insert(T item)
         {
             T currentnodevalue = this.NodeData;
@@ -54,8 +53,6 @@ namespace BinarySearchTree_HashTable
                 }
             }
         }
-
-
         public void InsertMultiItems(params T[] inputarray)
         {
             foreach (T item in inputarray)
@@ -63,7 +60,6 @@ namespace BinarySearchTree_HashTable
                 Insert(item);
             }
         }
-
         public void Count(BinarySearchTreeOps<T> binarySearchTree)
         {
 
@@ -81,14 +77,37 @@ namespace BinarySearchTree_HashTable
             }
 
         }
-
         public void GetSizeOfBSt(BinarySearchTreeOps<T> binarySearchTree)
         {
             Count(binarySearchTree);
             Console.WriteLine("Size of BST is :- " + (1 + this.leftCount + this.rightCount));
 
         }
+        public bool IfExists(T element, BinarySearchTreeOps<T> node)
+        {
 
+            if (node == null)
+            {
+                return false;
+            }
+            if (node.NodeData.Equals(element))
+            {
+                Console.WriteLine("\n> Serching for Element {0} in BST....", element);
+                Console.WriteLine("\n>> Element {0} is present in our BST ", node.NodeData);
+                result = true;
+            }
+
+            if (element.CompareTo(node.NodeData) < 0)
+            {
+                IfExists(element, node.leftTree);
+            }
+            if (element.CompareTo(node.NodeData) > 0)
+            {
+                IfExists(element, node.rightTree);
+            }
+
+            return result;
+        }
         public void Display()
         {
             if (this.leftTree != null)
@@ -102,7 +121,6 @@ namespace BinarySearchTree_HashTable
             {
                 this.rightTree.Display();
             }
-
 
         }
 
