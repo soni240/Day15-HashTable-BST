@@ -1,18 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BinarySearchTree_HashTable;
 
-Console.WriteLine("----- Binary_Search_Tree -----\n");
+Console.WriteLine("----- Hash table -----\n");
 
-BinarySearchTreeOps<int> binarySearchTree = new BinarySearchTreeOps<int>(56); //Root=56  
+MyMapNode<string, string> hash = new MyMapNode<string, string>(5);///hash.Add("1", "be");
+//hash.Add("2", "or");
+//hash.Add("3", "not");
+//hash.Add("4", "to");
+//hash.Add("5", "be");
+////string hash5 = hash.Get("5");
+////Console.WriteLine("5th index value: " + hash5);
+////string hash2 = hash.Get("2");
+////Console.WriteLine("2th index value: " + hash2);
 
-binarySearchTree.InsertMultiItems(30, 70, 22, 40, 60, 95, 11, 65, 3, 16, 63, 67);
+//hash.Display("5");
+//hash.Display("2");
 
-Console.WriteLine("\n>> Binary_Search_Tree :- ");
-binarySearchTree.Display();
-
-binarySearchTree.GetSizeOfBSt(binarySearchTree);
-
-binarySearchTree.IfExists(95, binarySearchTree);
+hash.GetFreq();
 
 Console.ReadKey();
 
